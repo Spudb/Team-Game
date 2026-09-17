@@ -34,6 +34,8 @@ func start_game():
 var game_running = 0
 
 func game_over():
+	
+	$CanvasLayer/restart_menu.visible = 1
 	game_running = 0
 	$game_time.stop()
 	for i in $targets.get_children():
