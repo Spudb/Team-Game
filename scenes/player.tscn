@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c86wgokjbwikq"]
+
+[ext_resource type="Script" uid="uid://nv1klghk2b5b" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
+size = Vector2(41, 90)
+
+[node name="player" type="CharacterBody2D" unique_id=200327598]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=543456153]
+position = Vector2(0.5, -16)
+shape = SubResource("RectangleShape2D_vlew8")
+
+[node name="Panel" type="Panel" parent="." unique_id=1743859805]
+offset_left = -20.0
+offset_top = -63.0
+offset_right = 20.0
+offset_bottom = 31.0
+mouse_filter = 2

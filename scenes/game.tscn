@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dewguiwa820s"]
+
+[ext_resource type="Script" uid="uid://bd3ikemwc357b" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://ckoy8h3cj528x" path="res://assets/circus-tent-red-white-color_1308-37417-removebg-preview.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="2_yqjtg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlew8"]
+bg_color = Color(0.19900009, 0.4245038, 0.77680206, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
+bg_color = Color(0.051450565, 0.4563917, 0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bekt7"]
+
+[node name="game" type="Node2D" unique_id=963411909]
+script = ExtResource("1_uwrxv")
+
+[node name="map" type="Node2D" parent="." unique_id=1982507535]
+
+[node name="bg" type="Node2D" parent="map" unique_id=1372148183]
+
+[node name="Panel" type="Panel" parent="map/bg" unique_id=1157276433]
+offset_left = -439.0
+offset_top = -289.0
+offset_right = 430.0
+offset_bottom = 28.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vlew8")
+
+[node name="Panel2" type="Panel" parent="map/bg" unique_id=1515097581]
+offset_left = -441.0
+offset_top = 28.0
+offset_right = 432.0
+offset_bottom = 163.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="tent" type="Node2D" parent="map" unique_id=1798465129]
+
+[node name="CircusTentRedWhiteColor130837417RemovebgPreview" type="Sprite2D" parent="map/tent" unique_id=1604141276]
+position = Vector2(1, -108.00001)
+scale = Vector2(0.6310484, 0.6310483)
+texture = ExtResource("2_lnu2h")
+
+[node name="Area2D" type="Area2D" parent="map/tent" unique_id=347426594]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/tent/Area2D" unique_id=685017690]
+
+[node name="boundary" type="Node2D" parent="." unique_id=1981267331]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="boundary" unique_id=992686110]
+position = Vector2(0, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D" unique_id=714485059]
+position = Vector2(-4, 27)
+shape = SubResource("WorldBoundaryShape2D_bekt7")
+
+[node name="player" parent="." unique_id=200327598 instance=ExtResource("2_yqjtg")]
+position = Vector2(-130, 20)
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1472360180]
+position = Vector2(0, -86)
+zoom = Vector2(1.74, 1.74)
