@@ -10,6 +10,9 @@ bg_color = Color(0.19900009, 0.4245038, 0.77680206, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
 bg_color = Color(0.051450565, 0.4563917, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(102, 98)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bekt7"]
 
 [node name="game" type="Node2D" unique_id=963411909]
@@ -42,9 +45,11 @@ position = Vector2(1, -108.00001)
 scale = Vector2(0.6310484, 0.6310483)
 texture = ExtResource("2_lnu2h")
 
-[node name="Area2D" type="Area2D" parent="map/tent" unique_id=347426594]
+[node name="tent1" type="Area2D" parent="map/tent" unique_id=347426594]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/tent/Area2D" unique_id=685017690]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/tent/tent1" unique_id=685017690]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_lnu2h")
 
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
 
@@ -61,3 +66,5 @@ position = Vector2(-130, 20)
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1472360180]
 position = Vector2(0, -86)
 zoom = Vector2(1.74, 1.74)
+
+[connection signal="body_entered" from="map/tent/tent1" to="." method="_on_tent_1_body_entered"]

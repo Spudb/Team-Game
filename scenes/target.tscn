@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1e7p7ibwdlhh"]
+
+[ext_resource type="Script" uid="uid://cneloydq711vw" path="res://scripts/target.gd" id="1_b37e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
+size = Vector2(38, 38)
+
+[node name="target" type="Node2D" unique_id=1318577958]
+script = ExtResource("1_b37e2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1646477171]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1981498542]
+shape = SubResource("RectangleShape2D_vlew8")
+
+[node name="Panel" type="Panel" parent="." unique_id=1727881866]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 2
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
