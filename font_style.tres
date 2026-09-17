@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://brwt2oauyjqw7"]
+
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="1_egbs4"]
+
+[resource]
+font = ExtResource("1_egbs4")
+font_size = 40
+font_color = Color(0.6963711, 0.71158415, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)

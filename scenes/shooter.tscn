@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d1yanbgqwds81" path="res://scripts/shooter.gd" id="1_gt117"]
 [ext_resource type="PackedScene" uid="uid://b1e7p7ibwdlhh" path="res://scenes/target.tscn" id="2_1e8ai"]
 [ext_resource type="Texture2D" uid="uid://dpgoq4k4rc2xt" path="res://assets/Gemini_Generated_Image_nc858unc858unc85.png" id="2_lynhg"]
+[ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="4_mger4"]
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="5_ok5ye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lynhg"]
 bg_color = Color(0.38410872, 0.31069958, 0.027248407, 1)
@@ -56,16 +58,103 @@ border_width_top = 1
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bekt7"]
+bg_color = Color(0.0049294494, 0.068595685, 0.13477832, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 2
+shadow_offset = Vector2(1.705, 0.27)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ok5ye"]
+font = ExtResource("5_ok5ye")
+font_size = 24
+font_color = Color(0.6963711, 0.71158415, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jhjc"]
+bg_color = Color(0.29047915, 0.57718354, 1.92523e-07, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4fik"]
+bg_color = Color(0.20112938, 0.41354018, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32q6q"]
+bg_color = Color(0.41127437, 0.8005829, 1.1551381e-06, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mxsl"]
+bg_color = Color(0.58, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgnek"]
+bg_color = Color(0.41, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yn3d"]
+bg_color = Color(0.8, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [node name="shooter" type="Node2D" unique_id=1990958596]
 script = ExtResource("1_gt117")
 
-[node name="GeminiGeneratedImageNc858Unc858Unc85" type="Sprite2D" parent="." unique_id=15907335]
-visible = false
-position = Vector2(0, 15)
-scale = Vector2(0.58007807, 0.58007807)
-texture = ExtResource("2_lynhg")
-
-[node name="GeminiGeneratedImageNc858Unc858Unc86" type="Sprite2D" parent="." unique_id=419423350]
+[node name="ref" type="Sprite2D" parent="." unique_id=419423350]
 visible = false
 modulate = Color(1, 1, 1, 0.6117647)
 position = Vector2(0, 15)
@@ -329,6 +418,33 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ld1l8")
 
+[node name="Panel10" type="Panel" parent="map" unique_id=1407769751]
+offset_left = -331.0
+offset_top = -18.0
+offset_right = 330.0
+offset_bottom = -13.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ld1l8")
+
+[node name="Panel11" type="Panel" parent="map" unique_id=212586360]
+offset_left = -331.0
+offset_top = 42.0
+offset_right = 330.0
+offset_bottom = 47.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ld1l8")
+
+[node name="Panel12" type="Panel" parent="map" unique_id=1066808383]
+offset_left = -331.0
+offset_top = 101.0
+offset_right = 330.0
+offset_bottom = 106.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ld1l8")
+
 [node name="Panel8" type="Panel" parent="map" unique_id=714017099]
 offset_left = -7.0
 offset_top = -211.0
@@ -388,7 +504,7 @@ color = Color(0.64705884, 0.42352942, 0.30588236, 1)
 polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
 
 [node name="Node2D3" type="Node2D" parent="map" unique_id=1427539370]
-position = Vector2(-310, 272)
+position = Vector2(-310, 255)
 
 [node name="Panel4" type="Panel" parent="map/Node2D3" unique_id=813350907]
 offset_left = -33.0
@@ -502,4 +618,103 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qut8p")
 zoom = Vector2(1.74, 1.74)
 
 [node name="target" parent="." unique_id=1318577958 instance=ExtResource("2_1e8ai")]
-position = Vector2(418, -190)
+visible = false
+position = Vector2(-310, -38)
+
+[node name="target2" parent="." unique_id=1640513223 instance=ExtResource("2_1e8ai")]
+visible = false
+position = Vector2(-310, 22)
+
+[node name="target3" parent="." unique_id=1075674307 instance=ExtResource("2_1e8ai")]
+visible = false
+position = Vector2(-310, 81)
+
+[node name="target4" parent="." unique_id=1224999394 instance=ExtResource("2_1e8ai")]
+visible = false
+position = Vector2(-28, 81)
+
+[node name="targets" type="Node2D" parent="." unique_id=1633429709]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1347458397]
+
+[node name="time" type="Label" parent="CanvasLayer" unique_id=261547070]
+visible = false
+offset_left = 619.0
+offset_top = 15.0
+offset_right = 666.0
+offset_bottom = 78.0
+text = "30"
+label_settings = ExtResource("4_mger4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="CanvasLayer" unique_id=1410649480]
+offset_left = 33.0
+offset_top = 60.0
+offset_right = 176.0
+offset_bottom = 123.0
+text = "Score: 0"
+label_settings = ExtResource("4_mger4")
+
+[node name="dark" type="Panel" parent="CanvasLayer" unique_id=1164497433]
+offset_right = 1293.0
+offset_bottom = 720.0
+
+[node name="highest" type="Label" parent="CanvasLayer" unique_id=1220887628]
+visible = false
+offset_left = 33.0
+offset_top = 15.0
+offset_right = 176.0
+offset_bottom = 78.0
+text = "Highest: 0"
+label_settings = ExtResource("4_mger4")
+
+[node name="start_menu" type="Node2D" parent="CanvasLayer" unique_id=673754118]
+
+[node name="Panel" type="Panel" parent="CanvasLayer/start_menu" unique_id=1727838330]
+offset_left = 477.71793
+offset_top = 262.0
+offset_right = 818.2821
+offset_bottom = 491.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bekt7")
+
+[node name="info" type="Label" parent="CanvasLayer/start_menu" unique_id=1902699576]
+offset_left = 505.0
+offset_top = 271.0
+offset_right = 792.0
+offset_bottom = 394.0
+text = "You have to shoot the targets as fast as you can."
+label_settings = SubResource("LabelSettings_ok5ye")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="start" type="Button" parent="CanvasLayer/start_menu" unique_id=258940865]
+offset_left = 499.0
+offset_top = 412.0
+offset_right = 632.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("5_ok5ye")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_8jhjc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q4fik")
+theme_override_styles/hover = SubResource("StyleBoxFlat_32q6q")
+text = "Start!"
+
+[node name="leave" type="Button" parent="CanvasLayer/start_menu" unique_id=575391450]
+offset_left = 663.0
+offset_top = 412.0
+offset_right = 796.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("5_ok5ye")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_8mxsl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cgnek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6yn3d")
+text = "Leave"
+
+[node name="game_time" type="Timer" parent="." unique_id=216285445]
+
+[connection signal="pressed" from="CanvasLayer/start_menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/start_menu/leave" to="." method="_on_leave_pressed"]
+[connection signal="timeout" from="game_time" to="." method="_on_game_time_timeout"]

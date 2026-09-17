@@ -1,6 +1,7 @@
 extends Node2D
 
-
+# عشان يبعت للسكربت هناك ان في تارجت اتضرب
+var game
 
 # البتاع دي لو عايز تستقبل كليك شمال على area مثلا
 func check_click(event):
@@ -10,4 +11,5 @@ func check_click(event):
 # لو جت click فوق الarea بتسمع هنا
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if check_click(event):
+		game.target_hit()
 		queue_free()
