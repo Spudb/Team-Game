@@ -5,6 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="4_mger4"]
 [ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="5_ok5ye"]
 [ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="6_ld1l8"]
+[ext_resource type="Texture2D" uid="uid://06qhlq7xhnss" path="res://assets/Gunshot-PNG-Picture.png" id="6_xxh7r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(1307, 743)
@@ -565,7 +566,15 @@ position = Vector2(-310, 81)
 visible = false
 position = Vector2(-28, 81)
 
+[node name="gun_shot" type="Sprite2D" parent="." unique_id=495794286]
+visible = false
+position = Vector2(-309, -32.000004)
+scale = Vector2(0.029166682, 0.029166682)
+texture = ExtResource("6_xxh7r")
+
 [node name="targets" type="Node2D" parent="." unique_id=1633429709]
+
+[node name="shots" type="Node2D" parent="." unique_id=351580672]
 
 [node name="Node2D3" type="Node2D" parent="." unique_id=295320954]
 position = Vector2(-310, 255)

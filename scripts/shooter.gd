@@ -80,7 +80,6 @@ func _process(delta: float) -> void:
 	gun.position.x = remap(mouse_x, -320, -15, -50, 396.0)
 	
 	
-	
 	# -320:-15
 	# pos.x  -31.0:396.0
 	#print(gun.rotation)
@@ -249,11 +248,22 @@ func _on_leave_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 var handeled = 0
+var gun_shot = preload("res://assets/Gunshot-PNG-Picture.png")
+
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if check_click(event):
+	if check_click(event) && game_running:
 		print("got click")
+		var temp = Sprite2D.new()
+		temp.texture = gun_shot
+		temp.position =  get_global_mouse_position()
+		temp.scale = Vector2(0.029,0.029)
+		$shots.add_child(temp)
+		
 		await get_tree().create_timer(0.01).timeout
 		if !handeled:
+			
 			miss_hit()
-			#print("y")
 		else: handeled = 0
+		
+		await get_tree().create_timer(3).timeout
+		$shots.get_child(0).queue_free()

@@ -7,7 +7,7 @@ var game4_location
 # الي يضيف لعبة يعدل هنا بس
 func assign_games_data():
 	# game 2
-	$map/tent2.visible = 1
+	$map/tent2.visible = 0
 	$map/tent2/info/title.text = "Game Title"
 	$map/tent2/info/info2.text = "Small desribtion."
 	$map/tent2/info/info3.text = "Highest score/etc"
@@ -15,7 +15,7 @@ func assign_games_data():
 	game2_location = ""
 	
 	# game 3
-	$map/tent3.visible = 1
+	$map/tent3.visible = 0
 	$map/tent3/info/title.text = "Game Title"
 	$map/tent3/info/info2.text = "Small desribtion."
 	$map/tent3/info/info3.text = "Highest score/etc"
@@ -23,7 +23,7 @@ func assign_games_data():
 	game3_location = ""
 	
 	# game 4
-	$map/tent4.visible = 1
+	$map/tent4.visible = 0
 	$map/tent4/info/title.text = "Game Title"
 	$map/tent4/info/info2.text = "Small desribtion."
 	$map/tent4/info/info3.text = "Highest score/etc"

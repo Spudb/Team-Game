@@ -234,6 +234,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_pkedl")
 
 [node name="Label" type="Label" parent="." unique_id=506190001]
 visible = false
+z_index = 1
 offset_left = -12.0
 offset_top = -10.0
 offset_right = 14.0
