@@ -724,7 +724,6 @@ text = "Highest: 0"
 label_settings = ExtResource("4_mger4")
 
 [node name="start_menu" type="Node2D" parent="CanvasLayer" unique_id=673754118]
-visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer/start_menu" unique_id=1727838330]
 offset_left = 477.71793

@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://dewguiwa820s"]
 
 [ext_resource type="Script" uid="uid://bd3ikemwc357b" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://ckoy8h3cj528x" path="res://assets/circus-tent-red-white-color_1308-37417-removebg-preview.png" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://dub5y41ums3rt" path="res://assets/—Pngtree—vibrant circus carnival tent design_19166998.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://kanfwohthlb8" path="res://assets/e19112b0-b68f-4225-9930-33cabeb7e5c2.png" id="4_lbhrr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlew8"]
-bg_color = Color(0.19900009, 0.4245038, 0.77680206, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
-bg_color = Color(0.051450565, 0.4563917, 0, 1)
+bg_color = Color(0.5372549, 0.54509807, 0.21960784, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(102, 98)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bekt7"]
 
 [node name="game" type="Node2D" unique_id=963411909]
 script = ExtResource("1_uwrxv")
@@ -22,27 +25,91 @@ script = ExtResource("1_uwrxv")
 
 [node name="bg" type="Node2D" parent="map" unique_id=1372148183]
 
-[node name="Panel" type="Panel" parent="map/bg" unique_id=1157276433]
-offset_left = -439.0
-offset_top = -289.0
-offset_right = 430.0
-offset_bottom = 28.0
+[node name="Panel4" type="Panel" parent="map/bg" unique_id=605233497]
+offset_left = -1288.0
+offset_top = -727.0
+offset_right = 1082.0
+offset_bottom = 471.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vlew8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbhrr")
 
 [node name="Panel2" type="Panel" parent="map/bg" unique_id=1515097581]
-offset_left = -441.0
-offset_top = 28.0
-offset_right = 432.0
-offset_bottom = 163.0
+offset_left = -519.0
+offset_top = -511.0
+offset_right = 282.0
+offset_bottom = 15.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel3" type="Panel" parent="map/bg" unique_id=218507712]
+offset_left = 415.0
+offset_top = -75.0
+offset_right = 694.0
+offset_bottom = 150.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel5" type="Panel" parent="map/bg" unique_id=440177153]
+offset_left = 415.0
+offset_top = -416.0
+offset_right = 694.0
+offset_bottom = -191.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel6" type="Panel" parent="map/bg" unique_id=1206594350]
+offset_left = -919.0
+offset_top = -408.0
+offset_right = -640.0
+offset_bottom = -80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel7" type="Panel" parent="map/bg" unique_id=215039741]
+offset_left = -921.0
+offset_top = 83.0
+offset_right = -642.0
+offset_bottom = 308.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel10" type="Panel" parent="map/bg" unique_id=1577852091]
+offset_left = -1292.0
+offset_top = -618.0
+offset_right = -1052.0
+offset_bottom = 486.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel11" type="Panel" parent="map/bg" unique_id=1995044088]
+offset_left = 828.0
+offset_top = -618.0
+offset_right = 1068.0
+offset_bottom = 486.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel8" type="Panel" parent="map/bg" unique_id=1257959435]
+offset_left = -1292.0
+offset_top = -817.0
+offset_right = -228.0
+offset_bottom = -610.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel9" type="Panel" parent="map/bg" unique_id=43606412]
+offset_left = -8.0
+offset_top = -817.0
+offset_right = 1065.0
+offset_bottom = -610.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
 [node name="shooter_tent" type="Node2D" parent="map" unique_id=1798465129]
 
-[node name="CircusTentRedWhiteColor130837417RemovebgPreview" type="Sprite2D" parent="map/shooter_tent" unique_id=1604141276]
-position = Vector2(1, -108.00001)
-scale = Vector2(0.6310484, 0.6310483)
+[node name="—pngtree—vibrantCircusCarnivalTentDesign19166998" type="Sprite2D" parent="map/shooter_tent" unique_id=22749175]
+position = Vector2(552.00006, -25.999994)
+scale = Vector2(0.12366667, 0.12366667)
 texture = ExtResource("2_lnu2h")
 
 [node name="tent1" type="Area2D" parent="map/shooter_tent" unique_id=347426594]
@@ -56,16 +123,27 @@ shape = SubResource("RectangleShape2D_lnu2h")
 [node name="StaticBody2D" type="StaticBody2D" parent="boundary" unique_id=992686110]
 position = Vector2(0, 28)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D" unique_id=714485059]
-position = Vector2(-4, 27)
-shape = SubResource("WorldBoundaryShape2D_bekt7")
+[node name="E19112b0B68f4225993033Cabeb7e5c2" type="Sprite2D" parent="." unique_id=837693169]
+visible = false
+modulate = Color(1, 1, 1, 0.35686275)
+position = Vector2(-122, -171)
+scale = Vector2(2.2826478, 2.2826476)
+texture = ExtResource("4_lbhrr")
+metadata/_edit_lock_ = true
+
+[node name="E19112b0B68f4225993033Cabeb7e5c3" type="Sprite2D" parent="." unique_id=1611405358]
+visible = false
+position = Vector2(-122, -171)
+scale = Vector2(2.2826478, 2.2826476)
+texture = ExtResource("4_lbhrr")
+metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=200327598 instance=ExtResource("2_yqjtg")]
 position = Vector2(-130, 20)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1472360180]
 position = Vector2(0, -86)
-zoom = Vector2(1.74, 1.74)
+zoom = Vector2(1.24, 1.24)
 
 [connection signal="body_entered" from="map/shooter_tent/tent1" to="." method="_on_tent_shooter_body_entered"]
 [connection signal="body_exited" from="map/shooter_tent/tent1" to="." method="_on_tent_shooter_body_exited"]
