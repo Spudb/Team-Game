@@ -3369,12 +3369,11 @@ sources/5 = SubResource("TileSetAtlasSource_oao6a")
 
 [node name="Treasure Hunt" type="Node" unique_id=818626280]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1398840267]
-position = Vector2(576, 310.00003)
-
 [node name="Player" parent="." unique_id=496401353 instance=ExtResource("1_hmwqx")]
 position = Vector2(644.00006, 263)
 scale = Vector2(5, 5)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1398840267]
 
 [node name="Background_TileSet" type="TileMapLayer" parent="." unique_id=1106992264]
 z_index = -100
@@ -3392,18 +3391,3 @@ tile_set = SubResource("TileSet_ifow5")
 [node name="Map_Chest" parent="." unique_id=1823321260 instance=ExtResource("8_ak5rs")]
 position = Vector2(1074, 274)
 scale = Vector2(3, 3)
-
-[node name="Map" type="CanvasLayer" parent="." unique_id=1168807358]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Map" unique_id=2068021912]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SubViewport" type="SubViewport" parent="Map/SubViewportContainer" unique_id=1846428504]
-handle_input_locally = false
-size = Vector2i(200, 200)
-render_target_update_mode = 0
-
-[node name="Camera2D" type="Camera2D" parent="Map/SubViewportContainer/SubViewport" unique_id=1075132003]
-zoom = Vector2(0.1, 0.1)

@@ -74,7 +74,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_sjkm3")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"opened",
 "speed": 5.0
 }]
@@ -91,14 +91,15 @@ script = ExtResource("1_wvexh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=193867323]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wvhbo")
+animation = &"opened"
 autoplay = "default"
-frame_progress = 0.080649644
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1182025889]
 position = Vector2(-3, 1.5)
 shape = SubResource("RectangleShape2D_ifow5")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=536517723]
+collision_mask = 2
 
 [node name="InteractionArea" type="CollisionShape2D" parent="Area2D" unique_id=1867021558]
 position = Vector2(-1, 0)
