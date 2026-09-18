@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1e7p7ibwdlhh"]
 
 [ext_resource type="Script" uid="uid://cneloydq711vw" path="res://scripts/target.gd" id="1_b37e2"]
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="2_b5a2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(27, 36)
@@ -81,7 +82,27 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkedl"]
+bg_color = Color(0.7137255, 0.7137255, 0.7137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7137255, 0.7137255, 0.7137255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlbrr"]
+font = ExtResource("2_b5a2r")
+font_size = 19
+font_color = Color(0.6963711, 0.71158415, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="target" type="Node2D" unique_id=1318577958]
+scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_b37e2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1646477171]
@@ -199,5 +220,28 @@ offset_right = 211.0
 offset_bottom = -18.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kuto0")
+
+[node name="hit" type="Node2D" parent="." unique_id=198230883]
+visible = false
+position = Vector2(-200, 11)
+
+[node name="Panel2" type="Panel" parent="hit" unique_id=1319712021]
+offset_left = 188.0
+offset_top = -24.0
+offset_right = 213.0
+offset_bottom = 10.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkedl")
+
+[node name="Label" type="Label" parent="." unique_id=506190001]
+visible = false
+offset_left = -12.0
+offset_top = -10.0
+offset_right = 14.0
+offset_bottom = 20.0
+text = "+1"
+label_settings = SubResource("LabelSettings_nlbrr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

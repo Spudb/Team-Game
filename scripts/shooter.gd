@@ -32,6 +32,7 @@ func screen_shake(intensity, time):
 	active_shake_time = time
 	shake_time = 0.0
 
+var current_targets = 0
 
 func _process(delta: float) -> void:
 	# y: rotation -21.2: 7.2
@@ -136,7 +137,7 @@ var max_targets = 1
 # هنا البتاعة الي بتتحكم ف الوقت بين ظهور تارجت وتارجت
 func spawn_apply():
 	
-	while $targets.get_child_count() != max_targets:
+	while current_targets != max_targets:
 		if !game_running: return
 		spawn_target()
 	
@@ -147,6 +148,7 @@ func spawn_apply():
 # هنا البتاعة الي بترسبن تارجت
 var target = preload("res://scenes/target.tscn")
 func spawn_target():
+	current_targets += 1
 	var temp = target.instantiate()
 	var tempy = randi_range(0, 2)
 	# بيrandomize الارتفاع على تلت احتمالات (الصفوف يعني)
@@ -172,6 +174,7 @@ func spawn_target():
 	if targets_list[temp_id]:
 		#print(temp_id)
 		temp.queue_free()
+		current_targets -= 1
 
 var target_id = 0
 
@@ -192,7 +195,7 @@ func target_hit():
 	$"CanvasLayer/341994/light".visible = 0
 	
 	await get_tree().create_timer(0.5).timeout
-	if $targets.get_child_count() < max_targets && game_running:
+	if current_targets < max_targets && game_running:
 		spawn_target()
 
 var time = 30
