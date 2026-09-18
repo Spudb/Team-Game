@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d1yanbgqwds81" path="res://scripts/shooter.gd" id="1_gt117"]
 [ext_resource type="PackedScene" uid="uid://b1e7p7ibwdlhh" path="res://scenes/target.tscn" id="2_1e8ai"]
-[ext_resource type="Texture2D" uid="uid://dpgoq4k4rc2xt" path="res://assets/Gemini_Generated_Image_nc858unc858unc85.png" id="2_lynhg"]
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="4_mger4"]
 [ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="5_ok5ye"]
 [ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="6_ld1l8"]
@@ -826,13 +825,6 @@ energy = 13.56
 texture = SubResource("GradientTexture2D_vlew8")
 
 [node name="game_time" type="Timer" parent="." unique_id=216285445]
-
-[node name="ref" type="Sprite2D" parent="." unique_id=419423350]
-visible = false
-modulate = Color(1, 1, 1, 0.6117647)
-position = Vector2(0, 15)
-scale = Vector2(0.58007807, 0.58007807)
-texture = ExtResource("2_lynhg")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1379292319]
 visible = false
