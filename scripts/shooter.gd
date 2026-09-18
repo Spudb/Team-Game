@@ -105,6 +105,7 @@ func _ready() -> void:
 	$CanvasLayer/highest.visible = 1
 	
 
+
 func start_game():
 	gun.visible = 1
 	play_sound(sound_start)
@@ -112,9 +113,9 @@ func start_game():
 	$CanvasLayer/start_menu.visible = 0
 	$CanvasLayer/restart_menu.visible = 0
 	
-	await get_tree().create_timer(0.5).timeout
+	#await get_tree().create_timer(0.5).timeout #edit
 	$CanvasLayer/score.visible = 1
-	await get_tree().create_timer(0.5).timeout
+	#await get_tree().create_timer(0.5).timeout #edit
 	game_running = 1
 	$CanvasLayer/time.visible = 1
 	
@@ -197,10 +198,20 @@ func update_score():
 func shoot():
 	screen_shake(2, 1)
 	play_sound(sound_shot)
+	
+	var temp = gun.get_node("smoke").duplicate()
+	
+	temp.restart()
+	temp.emitting = true
+	gun.add_child(temp)
 		
 	$"CanvasLayer/341994/light".visible = 1
 	await get_tree().create_timer(0.1).timeout
 	$"CanvasLayer/341994/light".visible = 0
+	
+	await get_tree().create_timer(3).timeout
+	temp.queue_free()
+	
 
 func target_hit():
 	shoot()

@@ -155,6 +155,37 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="Gradient" id="Gradient_xxh7r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qut8p"]
+gradient = SubResource("Gradient_xxh7r")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.55982906)
+
+[sub_resource type="Gradient" id="Gradient_ts0hh"]
+offsets = PackedFloat32Array(0, 0.5019305, 1)
+colors = PackedColorArray(1, 1, 1, 0.9019608, 1, 1, 1, 0.7058824, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xxh7r"]
+gradient = SubResource("Gradient_ts0hh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ld1l8"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 1.5
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, -10, 0)
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.5
+scale_max = 1.1999999
+color_ramp = SubResource("GradientTexture1D_xxh7r")
+
 [sub_resource type="Gradient" id="Gradient_ld1l8"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
@@ -826,6 +857,16 @@ text = "Leave"
 position = Vector2(-125, 718)
 scale = Vector2(0.57760143, 0.5776014)
 texture = ExtResource("6_ld1l8")
+
+[node name="smoke" type="GPUParticles2D" parent="CanvasLayer/341994" unique_id=675075490]
+position = Vector2(268.35114, -393.0046)
+scale = Vector2(1.7312977, 1.7312979)
+emitting = false
+texture = SubResource("GradientTexture2D_qut8p")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ld1l8")
 
 [node name="light" type="PointLight2D" parent="CanvasLayer/341994" unique_id=496497316]
 visible = false
