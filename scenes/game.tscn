@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bd3ikemwc357b" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dub5y41ums3rt" path="res://assets/—Pngtree—vibrant circus carnival tent design_19166998.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://kanfwohthlb8" path="res://assets/e19112b0-b68f-4225-9930-33cabeb7e5c2.png" id="4_lbhrr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
@@ -20,19 +21,41 @@ a = Vector2(7, 30)
 b = Vector2(290, 31)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p57ef"]
-a = Vector2(-22, -2)
-b = Vector2(-26, 154)
+a = Vector2(-20, -5)
+b = Vector2(-38, 142)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lbhrr"]
-a = Vector2(2, -4)
+a = Vector2(-7, -38)
 b = Vector2(28, 157)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vlew8"]
-a = Vector2(-1, 1)
+a = Vector2(-13, 0)
 b = Vector2(307, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(145, 150)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.0038999962, 0.064848304, 0.13, 0.4392157)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.13333334)
+shadow_size = 1
+shadow_offset = Vector2(1.705, 0.27)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
+font = ExtResource("3_iywne")
+font_size = 19
+font_color = Color(0.6963711, 0.71158415, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="game" type="Node2D" unique_id=963411909]
 script = ExtResource("1_uwrxv")
@@ -144,6 +167,14 @@ position = Vector2(577.00006, -116.24997)
 scale = Vector2(0.18383332, 0.18383332)
 texture = ExtResource("2_lnu2h")
 
+[node name="sprite2" type="Sprite2D" parent="map/shooter_tent" unique_id=243822460]
+z_index = 1
+position = Vector2(575, -199.00002)
+scale = Vector2(0.18383332, 0.18383332)
+texture = ExtResource("2_lnu2h")
+region_enabled = true
+region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="map/shooter_tent" unique_id=1804635632]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=1239048305]
@@ -155,7 +186,7 @@ position = Vector2(443, -93)
 shape = SubResource("SegmentShape2D_p57ef")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=952012433]
-position = Vector2(703, -93)
+position = Vector2(728, -93)
 shape = SubResource("SegmentShape2D_lbhrr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=724746846]
@@ -167,6 +198,29 @@ shape = SubResource("SegmentShape2D_vlew8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/tent1" unique_id=685017690]
 position = Vector2(577.5, -12)
 shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="start_menu" type="Node2D" parent="map/shooter_tent" unique_id=702335392]
+z_index = 2
+position = Vector2(247, -457)
+
+[node name="Panel" type="Panel" parent="map/shooter_tent/start_menu" unique_id=2019741945]
+offset_left = 477.71793
+offset_top = 262.0
+offset_right = 715.0
+offset_bottom = 365.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="info" type="Label" parent="map/shooter_tent/start_menu" unique_id=1447315639]
+offset_left = 529.0
+offset_top = 270.0
+offset_right = 667.0
+offset_bottom = 300.0
+text = "Shooter Game"
+label_settings = SubResource("LabelSettings_u5sy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
 
