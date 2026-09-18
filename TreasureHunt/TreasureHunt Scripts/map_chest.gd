@@ -3,10 +3,11 @@ extends StaticBody2D
 var is_opened = false
 var is_in = false
 
-@onready var label: Label = $Label
-@onready var sub_viewport_container: SubViewportContainer = $"../CanvasLayer/SubViewportContainer"
+@onready var label: Label = $HowToInteract
+@onready var sub_viewport_container: SubViewportContainer = $"../Map/SubViewportContainer"
 @onready var player: CharacterBody2D = $"../Player"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var map_taken: Label = $MapTaken
 
 func _ready() -> void:
 	pass
@@ -32,4 +33,5 @@ func chest_interaction():
 			if is_opened == false:
 				sub_viewport_container.show()
 				animated_sprite_2d.play("opened")
+				map_taken.show_notification()
 				is_opened = true

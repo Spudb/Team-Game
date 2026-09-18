@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfmblu7fo4s0q" path="res://TreasureHunt/TreasureHunt Assets/Treasure Chest - Basic & Fancy.png" id="1_o1xks"]
 [ext_resource type="Script" uid="uid://riaijfn7aknm" path="res://TreasureHunt/TreasureHunt Scripts/map_chest.gd" id="1_wvexh"]
+[ext_resource type="Script" uid="uid://bw16gfk35qnrk" path="res://TreasureHunt/TreasureHunt Scripts/map_taken.gd" id="3_rm73a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvexh"]
 atlas = ExtResource("1_o1xks")
@@ -106,7 +107,7 @@ position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_wvhbo")
 debug_color = Color(0.969541, 0.22734249, 0.6300598, 0.41960785)
 
-[node name="Label" type="Label" parent="." unique_id=1641288550]
+[node name="HowToInteract" type="Label" parent="." unique_id=1641288550]
 visible = false
 texture_filter = 1
 offset_left = -45.0
@@ -115,6 +116,16 @@ offset_right = 5.0
 offset_bottom = 19.0
 theme_override_font_sizes/font_size = 6
 text = "Press \"E\" to open"
+
+[node name="MapTaken" type="Label" parent="." unique_id=1677959447]
+texture_filter = 1
+offset_left = -26.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0.5285697, 0.24198097, 0.033261236, 1)
+theme_override_font_sizes/font_size = 8
+script = ExtResource("3_rm73a")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

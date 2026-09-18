@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var camera_2d: Camera2D = $"../CanvasLayer/SubViewportContainer/SubViewport/Camera2D"
+@onready var camera_2d: Camera2D = $"../Map/SubViewportContainer/SubViewport/Camera2D"
 
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 
 
 func _ready() -> void:
-	var sub_viewport: SubViewport = $"../CanvasLayer/SubViewportContainer/SubViewport"
+	var sub_viewport: SubViewport = $"../Map/SubViewportContainer/SubViewport"
 	if sub_viewport:
 		sub_viewport.world_2d = get_viewport().world_2d
 
