@@ -47,15 +47,25 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 shadow_color = Color(0, 0, 0, 0.13333334)
-shadow_size = 1
+shadow_size = 4
 shadow_offset = Vector2(1.705, 0.27)
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
 font = ExtResource("3_iywne")
-font_size = 19
+font_size = 22
 font_color = Color(0.6963711, 0.71158415, 1, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iywne"]
+line_spacing = -9.75
+font = ExtResource("3_iywne")
+font_color = Color(0.6963711, 0.71158415, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57ef"]
+size = Vector2(442, 302)
 
 [node name="game" type="Node2D" unique_id=963411909]
 script = ExtResource("1_uwrxv")
@@ -175,52 +185,139 @@ texture = ExtResource("2_lnu2h")
 region_enabled = true
 region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="map/shooter_tent" unique_id=1804635632]
+[node name="boundaries" type="StaticBody2D" parent="map/shooter_tent" unique_id=1804635632]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=1239048305]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=1239048305]
 position = Vector2(414, -128)
 shape = SubResource("SegmentShape2D_iywne")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=1642846100]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=1642846100]
 position = Vector2(443, -93)
 shape = SubResource("SegmentShape2D_p57ef")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=952012433]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=952012433]
 position = Vector2(728, -93)
 shape = SubResource("SegmentShape2D_lbhrr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=724746846]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=724746846]
 position = Vector2(421, 45)
 shape = SubResource("SegmentShape2D_vlew8")
 
-[node name="tent1" type="Area2D" parent="map/shooter_tent" unique_id=347426594]
+[node name="game_enter" type="Area2D" parent="map/shooter_tent" unique_id=347426594]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/tent1" unique_id=685017690]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/game_enter" unique_id=685017690]
 position = Vector2(577.5, -12)
 shape = SubResource("RectangleShape2D_lnu2h")
 
-[node name="start_menu" type="Node2D" parent="map/shooter_tent" unique_id=702335392]
+[node name="info_right" type="Node2D" parent="map/shooter_tent" unique_id=702335392]
+visible = false
 z_index = 2
 position = Vector2(247, -457)
 
-[node name="Panel" type="Panel" parent="map/shooter_tent/start_menu" unique_id=2019741945]
-offset_left = 477.71793
-offset_top = 262.0
-offset_right = 715.0
-offset_bottom = 365.0
+[node name="Panel" type="Panel" parent="map/shooter_tent/info_right" unique_id=2019741945]
+offset_left = 506.7179
+offset_top = 263.0
+offset_right = 686.0
+offset_bottom = 402.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
-[node name="info" type="Label" parent="map/shooter_tent/start_menu" unique_id=1447315639]
-offset_left = 529.0
-offset_top = 270.0
-offset_right = 667.0
+[node name="title" type="Label" parent="map/shooter_tent/info_right" unique_id=1447315639]
+offset_left = 515.0
+offset_top = 264.0
+offset_right = 681.0
 offset_bottom = 300.0
 text = "Shooter Game"
 label_settings = SubResource("LabelSettings_u5sy4")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="info2" type="Label" parent="map/shooter_tent/info_right" unique_id=1638626727]
+offset_left = 531.0
+offset_top = 297.0
+offset_right = 665.0
+offset_bottom = 342.0
+text = "Shoot targets as fast as you can!"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="info_left" type="Node2D" parent="map/shooter_tent" unique_id=1775757502]
+visible = false
+z_index = 2
+position = Vector2(-289, -457)
+
+[node name="Panel" type="Panel" parent="map/shooter_tent/info_left" unique_id=1693010948]
+offset_left = 506.7179
+offset_top = 263.0
+offset_right = 686.0
+offset_bottom = 402.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="title" type="Label" parent="map/shooter_tent/info_left" unique_id=184030481]
+offset_left = 515.0
+offset_top = 264.0
+offset_right = 681.0
+offset_bottom = 300.0
+text = "Shooter Game"
+label_settings = SubResource("LabelSettings_u5sy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="info2" type="Label" parent="map/shooter_tent/info_left" unique_id=849195016]
+offset_left = 531.0
+offset_top = 297.0
+offset_right = 665.0
+offset_bottom = 342.0
+text = "Shoot targets as fast as you can!"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="info" type="Node2D" parent="map/shooter_tent" unique_id=1751422141]
+z_index = 2
+position = Vector2(-131, -457)
+
+[node name="Panel" type="Panel" parent="map/shooter_tent/info" unique_id=1171898651]
+offset_left = 506.7179
+offset_top = 263.0
+offset_right = 686.0
+offset_bottom = 402.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="title" type="Label" parent="map/shooter_tent/info" unique_id=315719677]
+offset_left = 515.0
+offset_top = 264.0
+offset_right = 681.0
+offset_bottom = 300.0
+text = "Shooter Game"
+label_settings = SubResource("LabelSettings_u5sy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="info2" type="Label" parent="map/shooter_tent/info" unique_id=1521837626]
+offset_left = 531.0
+offset_top = 297.0
+offset_right = 665.0
+offset_bottom = 342.0
+text = "Shoot targets as fast as you can!"
+label_settings = SubResource("LabelSettings_iywne")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="info_area" type="Area2D" parent="map/shooter_tent" unique_id=1267499306]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/info_area" unique_id=3568702]
+position = Vector2(573, -3)
+shape = SubResource("RectangleShape2D_p57ef")
 
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
 
@@ -249,5 +346,7 @@ position = Vector2(310, 20)
 position = Vector2(0, -86)
 zoom = Vector2(1.24, 1.24)
 
-[connection signal="body_entered" from="map/shooter_tent/tent1" to="." method="_on_tent_shooter_body_entered"]
-[connection signal="body_exited" from="map/shooter_tent/tent1" to="." method="_on_tent_shooter_body_exited"]
+[connection signal="body_entered" from="map/shooter_tent/game_enter" to="." method="_on_tent_shooter_body_entered"]
+[connection signal="body_exited" from="map/shooter_tent/game_enter" to="." method="_on_tent_shooter_body_exited"]
+[connection signal="body_entered" from="map/shooter_tent/info_area" to="." method="_on_tent1_info_area_body_entered"]
+[connection signal="body_exited" from="map/shooter_tent/info_area" to="." method="_on_tent1_info_area_body_exited"]
