@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://kdeflq41gavq"]
+
+[ext_resource type="PackedScene" uid="uid://drqtmtqws2fer" path="res://TreasureHunt/TreasureHunt Scenes/player.tscn" id="1_hmwqx"]
+
+[node name="Treasure Hunt" type="Node" unique_id=818626280]
+
+[node name="Player" parent="." unique_id=496401353 instance=ExtResource("1_hmwqx")]
+position = Vector2(567.99994, 89.99999)
+scale = Vector2(5, 5)

@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Rougelite game"
+config/name="Carnival game"
+run/main_scene="uid://kdeflq41gavq"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
