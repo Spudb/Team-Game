@@ -1,7 +1,42 @@
 extends Node2D
 
+var sound_start = preload("res://audio/start.mp3")
+var sound_shot = preload("res://audio/dragon-studio-gunshot-504030.mp3")
+
+func play_sound(sound, vol = 0.0):
+	var temp = AudioStreamPlayer.new()
+	temp.stream = sound
+	temp.volume_db = vol
+	add_child(temp)
+	
+	temp.finished.connect(temp.queue_free)
+	temp.play()
+
+@onready var gun: Sprite2D = $"CanvasLayer/341994"
 
 func _process(delta: float) -> void:
+	# y: rotation -21.2: 7.2
+	# y:-45:92
+	#$"CanvasLayer/341994".rotation = 
+	
+	var mouse_x = get_global_mouse_position().x
+	var mouse_y = get_global_mouse_position().y
+
+#
+	#if mouse_y > -45 and mouse_y < 110:
+		#gun.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
+	#else:
+		#gun.rotation = 0
+	#
+	gun.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
+	gun.position.x = remap(mouse_x, -320, -15, 31.0, 396.0)
+	
+	
+	
+	# -320:-15
+	# pos.x  -31.0:396.0
+	#print(gun.rotation)
+	#print(get_global_mouse_position())
 	pass
 
 # البتاع دي لو عايز تستقبل كليك شمال على area مثلا
@@ -14,12 +49,14 @@ func _on_target_test_input_event(viewport: Node, event: InputEvent, shape_idx: i
 		print()
 
 func _ready() -> void:
+	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/start_menu.visible = 1
 	$CanvasLayer/score.visible = 0
 	$CanvasLayer/highest.visible = 1
 	
 
 func start_game():
+	play_sound(sound_start)
 	$CanvasLayer/dark.visible = 0
 	$CanvasLayer/start_menu.visible = 0
 	await get_tree().create_timer(0.5).timeout
@@ -79,6 +116,7 @@ var score = 0
 func target_hit():
 	score += 1
 	
+	play_sound(sound_shot)
 	#تحديث الui
 	$CanvasLayer/score.text = "Score: " + str(score)
 	
