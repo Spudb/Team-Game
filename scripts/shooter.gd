@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 	# y: rotation -21.2: 7.2
 	# y:-45:92
 	#$"CanvasLayer/341994".rotation = 
+	#print(targets_list)
 	
 	var mouse_x = get_global_mouse_position().x
 	var mouse_y = get_global_mouse_position().y
@@ -161,10 +162,22 @@ func spawn_target():
 	var temp_skin = randi_range(0, 2)
 	temp.get_node("skins").get_child(temp_skin).visible = 1
 	
+	temp.id = target_id
+	var temp_id = temp.id
+	target_id += 1
+	targets_list.append(1)
 	$targets.add_child(temp)
 	
-	#await get_tree().create_timer(3.0).timeout
-	#temp.queue_free()
+	await get_tree().create_timer(3.0).timeout
+	if targets_list[temp_id]:
+		#print(temp_id)
+		temp.queue_free()
+
+var target_id = 0
+
+var targets_list = [
+	
+]
 
 var highest_score = 0
 var score = 0
@@ -201,7 +214,6 @@ func _on_game_time_timeout() -> void:
 
 func _on_start_pressed() -> void:
 	start_game()
-
 
 func _on_leave_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
