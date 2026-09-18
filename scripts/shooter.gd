@@ -3,7 +3,7 @@ extends Node2D
 var sound_start = preload("res://audio/start.mp3")
 var sound_shot = preload("res://audio/dragon-studio-gunshot-504030.mp3")
 var sound_game_over = preload("res://audio/universfield-game-over-deep-male-voice-clip-352695.mp3")
-
+var sound_pop = preload("res://audio/universfield-bubble-pop-06-351337.mp3")
 
 func play_sound(sound, vol = 0.0):
 	var temp = AudioStreamPlayer.new()
@@ -85,7 +85,9 @@ func _process(delta: float) -> void:
 	# pos.x  -31.0:396.0
 	#print(gun.rotation)
 	#print(get_global_mouse_position())
-	pass
+	#
+	#if Input.is_action_just_pressed("click"):
+		#print("x")
 
 # البتاع دي لو عايز تستقبل كليك شمال على area مثلا
 func check_click(event):
@@ -171,7 +173,7 @@ func spawn_target():
 	$targets.add_child(temp)
 	
 	await get_tree().create_timer(3.0).timeout
-	if targets_list[temp_id]:
+	if targets_list[temp_id] && game_running:
 		#print(temp_id)
 		temp.queue_free()
 		current_targets -= 1
@@ -184,19 +186,44 @@ var targets_list = [
 
 var highest_score = 0
 var score = 0
-func target_hit():
+
+func update_score():
 	score += 1
-	screen_shake(2, 1)
-	play_sound(sound_shot)
 	#تحديث الui
 	$CanvasLayer/score.text = "Score: " + str(score)
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/score, "scale", Vector2(1.05,1.05), 0.1)
+	tween.tween_property($CanvasLayer/score, "scale", Vector2(1,1), 0.1)
+	
+func shoot():
+	screen_shake(2, 1)
+	play_sound(sound_shot)
+		
 	$"CanvasLayer/341994/light".visible = 1
 	await get_tree().create_timer(0.1).timeout
 	$"CanvasLayer/341994/light".visible = 0
+
+func target_hit():
+	shoot()
+	update_score()
 	
+	play_sound(sound_pop)
 	await get_tree().create_timer(0.5).timeout
 	if current_targets < max_targets && game_running:
 		spawn_target()
+
+func miss_hit():
+	shoot()
+	minus_score()
+
+func minus_score():
+	score -= 1
+	$CanvasLayer/score.text = "Score: " + str(score)
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/score, "position:x", 15, 0.1)
+	tween.tween_property($CanvasLayer/score, "position:x", 45, 0.1)
+	tween.tween_property($CanvasLayer/score, "position:x", 33, 0.1)
+	
 
 var time = 30
 func _on_game_time_timeout() -> void:
@@ -220,3 +247,12 @@ func _on_start_pressed() -> void:
 
 func _on_leave_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+var handeled = 0
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if check_click(event):
+		await get_tree().create_timer(0.01).timeout
+		if !handeled:
+			miss_hit()
+			#print("y")
+		else: handeled = 0

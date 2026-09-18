@@ -102,7 +102,6 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="target" type="Node2D" unique_id=1318577958]
-scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_b37e2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1646477171]
