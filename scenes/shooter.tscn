@@ -152,15 +152,57 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="Gradient" id="Gradient_ld1l8"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vlew8"]
+gradient = SubResource("Gradient_ld1l8")
+fill = 1
+fill_from = Vector2(0.50869566, 0.3869565)
+fill_to = Vector2(0.5347826, 0.8652174)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpxed"]
+bg_color = Color(1, 0.27999997, 0.27999997, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8vns"]
+bg_color = Color(0.4523663, 0.59877604, 0.7282633, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_suw1a"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncv88"]
+bg_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
 [node name="shooter" type="Node2D" unique_id=1990958596]
 script = ExtResource("1_gt117")
-
-[node name="ref" type="Sprite2D" parent="." unique_id=419423350]
-visible = false
-modulate = Color(1, 1, 1, 0.6117647)
-position = Vector2(0, 15)
-scale = Vector2(0.58007807, 0.58007807)
-texture = ExtResource("2_lynhg")
 
 [node name="map" type="Node2D" parent="." unique_id=474861679]
 
@@ -616,6 +658,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qut8p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1802434186]
+ignore_rotation = false
 zoom = Vector2(1.74, 1.74)
 
 [node name="target" parent="." unique_id=1318577958 instance=ExtResource("2_1e8ai")]
@@ -764,11 +807,55 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_6yn3d")
 text = "Leave"
 
 [node name="341994" type="Sprite2D" parent="CanvasLayer" unique_id=299942166]
-position = Vector2(-30.999989, 718)
+position = Vector2(-125, 718)
 scale = Vector2(0.57760143, 0.5776014)
 texture = ExtResource("6_ld1l8")
 
+[node name="light" type="PointLight2D" parent="CanvasLayer/341994" unique_id=496497316]
+visible = false
+position = Vector2(261.42593, -351.45346)
+energy = 13.56
+texture = SubResource("GradientTexture2D_vlew8")
+
 [node name="game_time" type="Timer" parent="." unique_id=216285445]
+
+[node name="ref" type="Sprite2D" parent="." unique_id=419423350]
+visible = false
+modulate = Color(1, 1, 1, 0.6117647)
+position = Vector2(0, 15)
+scale = Vector2(0.58007807, 0.58007807)
+texture = ExtResource("2_lynhg")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1379292319]
+visible = false
+
+[node name="Panel2" type="Panel" parent="Node2D" unique_id=1343416446]
+offset_left = 194.0
+offset_top = -17.0
+offset_right = 207.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpxed")
+
+[node name="Panel4" type="Panel" parent="Node2D" unique_id=181788969]
+offset_left = 197.0
+offset_top = -11.0
+offset_right = 204.0
+offset_bottom = -3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s8vns")
+
+[node name="Panel3" type="Panel" parent="Node2D" unique_id=162215523]
+offset_left = 194.0
+offset_top = -16.0
+offset_right = 207.0
+offset_bottom = -13.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_suw1a")
+
+[node name="Panel" type="Panel" parent="Node2D" unique_id=1878699680]
+offset_left = 195.0
+offset_top = -16.0
+offset_right = 206.0
+offset_bottom = -14.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncv88")
 
 [connection signal="pressed" from="CanvasLayer/start_menu/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/start_menu/leave" to="." method="_on_leave_pressed"]

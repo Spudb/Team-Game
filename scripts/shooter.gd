@@ -2,6 +2,8 @@ extends Node2D
 
 var sound_start = preload("res://audio/start.mp3")
 var sound_shot = preload("res://audio/dragon-studio-gunshot-504030.mp3")
+var sound_game_over = preload("res://audio/universfield-game-over-deep-male-voice-clip-352695.mp3")
+
 
 func play_sound(sound, vol = 0.0):
 	var temp = AudioStreamPlayer.new()
@@ -14,6 +16,23 @@ func play_sound(sound, vol = 0.0):
 
 @onready var gun: Sprite2D = $"CanvasLayer/341994"
 
+
+var shake_intensity = 0.0
+var active_shake_time = 0.0
+var shake_decay = 5.0
+var shake_time = 0.0
+var shake_time_speed = 20.0
+var noise = FastNoiseLite.new()
+
+func screen_shake(intensity, time):
+	randomize()
+	noise.seed = randi()
+	noise.frequency = 2.0
+	shake_intensity = intensity
+	active_shake_time = time
+	shake_time = 0.0
+
+
 func _process(delta: float) -> void:
 	# y: rotation -21.2: 7.2
 	# y:-45:92
@@ -22,14 +41,41 @@ func _process(delta: float) -> void:
 	var mouse_x = get_global_mouse_position().x
 	var mouse_y = get_global_mouse_position().y
 
+	var shaked = $"Camera2D"
+	if active_shake_time > 0:
+		shake_time += delta * shake_time_speed
+		active_shake_time -= delta
+		shaked.position = Vector2(
+			noise.get_noise_2d(shake_time, 0.0) * shake_intensity,
+			noise.get_noise_2d(0.0, shake_time) * shake_intensity
+		)
+		
+		shake_intensity = max(shake_intensity - shake_decay * delta, 0.0)
+	else:
+		shaked.position = shaked.position.lerp(Vector2.ZERO, 10.5 * delta)
+	#shaked = $CanvasLayer
+	#if active_shake_time > 0:
+		#shake_time += delta * shake_time_speed
+		#active_shake_time -= delta
+		#
+		#shaked.offset = Vector2(
+			#noise.get_noise_2d(shake_time, 0.0) * shake_intensity,
+			#noise.get_noise_2d(0.0, shake_time) * shake_intensity
+		#)
+		#shake_intensity = max(shake_intensity - shake_decay * delta, 0.0)
+	#else:
+		#shaked.offset = shaked.offset.lerp(Vector2.ZERO, 10.5 * delta)
+	#
 #
 	#if mouse_y > -45 and mouse_y < 110:
 		#gun.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
 	#else:
 		#gun.rotation = 0
 	#
+	
+	# حركات المسدس
 	gun.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
-	gun.position.x = remap(mouse_x, -320, -15, 31.0, 396.0)
+	gun.position.x = remap(mouse_x, -320, -15, -50, 396.0)
 	
 	
 	
@@ -49,6 +95,7 @@ func _on_target_test_input_event(viewport: Node, event: InputEvent, shape_idx: i
 		print()
 
 func _ready() -> void:
+	gun.visible = 0
 	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/start_menu.visible = 1
 	$CanvasLayer/score.visible = 0
@@ -56,9 +103,12 @@ func _ready() -> void:
 	
 
 func start_game():
+	gun.visible = 1
 	play_sound(sound_start)
 	$CanvasLayer/dark.visible = 0
 	$CanvasLayer/start_menu.visible = 0
+	$CanvasLayer/restart_menu.visible = 0
+	
 	await get_tree().create_timer(0.5).timeout
 	$CanvasLayer/score.visible = 1
 	await get_tree().create_timer(0.5).timeout
@@ -71,7 +121,9 @@ func start_game():
 var game_running = 0
 
 func game_over():
-	
+	play_sound(sound_game_over)
+	gun.visible = 0
+	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/restart_menu.visible = 1
 	game_running = 0
 	$game_time.stop()
@@ -106,6 +158,9 @@ func spawn_target():
 	temp.position.x = randi_range(-28.0, -310.0)
 	temp.position.y = tempy
 	
+	var temp_skin = randi_range(0, 2)
+	temp.get_node("skins").get_child(temp_skin).visible = 1
+	
 	$targets.add_child(temp)
 	
 	#await get_tree().create_timer(3.0).timeout
@@ -115,12 +170,15 @@ var highest_score = 0
 var score = 0
 func target_hit():
 	score += 1
-	
+	screen_shake(2, 1)
 	play_sound(sound_shot)
 	#تحديث الui
 	$CanvasLayer/score.text = "Score: " + str(score)
+	$"CanvasLayer/341994/light".visible = 1
+	await get_tree().create_timer(0.1).timeout
+	$"CanvasLayer/341994/light".visible = 0
 	
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.5).timeout
 	if $targets.get_child_count() < max_targets && game_running:
 		spawn_target()
 
