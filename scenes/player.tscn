@@ -2,19 +2,30 @@
 
 [ext_resource type="Script" uid="uid://nv1klghk2b5b" path="res://scripts/player.gd" id="1_3vyb7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
-size = Vector2(41, 90)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 17.0
+height = 72.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bekt7"]
+size = Vector2(62.5, 148)
 
 [node name="player" type="CharacterBody2D" unique_id=200327598]
 script = ExtResource("1_3vyb7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=543456153]
-position = Vector2(0.5, -16)
-shape = SubResource("RectangleShape2D_vlew8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=411453259]
+position = Vector2(10, 14)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Panel" type="Panel" parent="." unique_id=1743859805]
 offset_left = -20.0
-offset_top = -63.0
-offset_right = 20.0
+offset_top = -119.399994
+offset_right = 44.0
 offset_bottom = 31.0
 mouse_filter = 2
+
+[node name="area" type="Area2D" parent="." unique_id=59236637]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area" unique_id=924129406]
+position = Vector2(11.75, -45)
+shape = SubResource("RectangleShape2D_bekt7")

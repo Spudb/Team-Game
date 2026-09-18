@@ -15,10 +15,11 @@ func _process(delta: float) -> void:
 
 var tent_shooter = 0
 func _on_tent_shooter_body_entered(body: Node2D) -> void:
-	if body == $player:
+	if body.name == "player":
+		print("tent")
 		tent_shooter = 1
 func _on_tent_shooter_body_exited(body: Node2D) -> void:
-	if body == $player:
+	if body.name == "player":
 		tent_shooter = 0
 
 

@@ -15,8 +15,24 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iywne"]
+a = Vector2(7, 30)
+b = Vector2(290, 31)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p57ef"]
+a = Vector2(-22, -2)
+b = Vector2(-26, 154)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbhrr"]
+a = Vector2(2, -4)
+b = Vector2(28, 157)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vlew8"]
+a = Vector2(-1, 1)
+b = Vector2(307, 2)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
-size = Vector2(102, 98)
+size = Vector2(145, 150)
 
 [node name="game" type="Node2D" unique_id=963411909]
 script = ExtResource("1_uwrxv")
@@ -42,9 +58,9 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
 [node name="Panel3" type="Panel" parent="map/bg" unique_id=218507712]
-offset_left = 415.0
-offset_top = -75.0
-offset_right = 694.0
+offset_left = 377.0
+offset_top = -97.0
+offset_right = 779.0
 offset_bottom = 150.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
@@ -58,18 +74,34 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
 [node name="Panel6" type="Panel" parent="map/bg" unique_id=1206594350]
-offset_left = -919.0
-offset_top = -408.0
-offset_right = -640.0
-offset_bottom = -80.0
+offset_left = -917.0
+offset_top = -498.0
+offset_right = -638.0
+offset_bottom = -170.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
 [node name="Panel7" type="Panel" parent="map/bg" unique_id=215039741]
-offset_left = -921.0
-offset_top = 83.0
-offset_right = -642.0
-offset_bottom = 308.0
+offset_left = -915.0
+offset_top = -16.0
+offset_right = -636.0
+offset_bottom = 209.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel12" type="Panel" parent="map/bg" unique_id=1702145694]
+offset_left = -1094.0
+offset_top = 255.0
+offset_right = -235.0
+offset_bottom = 489.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
+
+[node name="Panel13" type="Panel" parent="map/bg" unique_id=2145828329]
+offset_left = -1.0
+offset_top = 252.0
+offset_right = 858.0
+offset_bottom = 486.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
@@ -107,15 +139,33 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
 [node name="shooter_tent" type="Node2D" parent="map" unique_id=1798465129]
 
-[node name="—pngtree—vibrantCircusCarnivalTentDesign19166998" type="Sprite2D" parent="map/shooter_tent" unique_id=22749175]
-position = Vector2(552.00006, -25.999994)
-scale = Vector2(0.12366667, 0.12366667)
+[node name="sprite" type="Sprite2D" parent="map/shooter_tent" unique_id=22749175]
+position = Vector2(577.00006, -116.24997)
+scale = Vector2(0.18383332, 0.18383332)
 texture = ExtResource("2_lnu2h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map/shooter_tent" unique_id=1804635632]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=1239048305]
+position = Vector2(414, -128)
+shape = SubResource("SegmentShape2D_iywne")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=1642846100]
+position = Vector2(443, -93)
+shape = SubResource("SegmentShape2D_p57ef")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=952012433]
+position = Vector2(703, -93)
+shape = SubResource("SegmentShape2D_lbhrr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/StaticBody2D" unique_id=724746846]
+position = Vector2(421, 45)
+shape = SubResource("SegmentShape2D_vlew8")
 
 [node name="tent1" type="Area2D" parent="map/shooter_tent" unique_id=347426594]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/tent1" unique_id=685017690]
-position = Vector2(0, -3)
+position = Vector2(577.5, -12)
 shape = SubResource("RectangleShape2D_lnu2h")
 
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
@@ -139,7 +189,7 @@ texture = ExtResource("4_lbhrr")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=200327598 instance=ExtResource("2_yqjtg")]
-position = Vector2(-130, 20)
+position = Vector2(310, 20)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1472360180]
 position = Vector2(0, -86)
