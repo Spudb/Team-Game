@@ -7,12 +7,12 @@ var game4_location
 # الي يضيف لعبة يعدل هنا بس
 func assign_games_data():
 	# game 2
-	$map/tent2.visible = 0
+	$map/tent2.visible = 1
 	$map/tent2/info/title.text = "Game Title"
 	$map/tent2/info/info2.text = "Small desribtion."
 	$map/tent2/info/info3.text = "Highest score/etc"
 	#$map/tent2/info/image.texture = ""
-	game2_location = ""
+	game2_location = "res://TreasureHunt/TreasureHunt Scenes/treasure_hunt.tscn"
 	
 	# game 3
 	$map/tent3.visible = 0
@@ -49,7 +49,7 @@ var tent4 = 0
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("Interact"):
 		if tent_shooter:
 			await enter_game("res://scenes/shooter.tscn")
 		if tent2:
