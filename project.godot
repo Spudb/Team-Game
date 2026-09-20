@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="Carnival game"
-run/main_scene="uid://kdeflq41gavq"
+run/main_scene="uid://dewguiwa820s"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
