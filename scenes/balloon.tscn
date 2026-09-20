@@ -14,7 +14,7 @@ script = ExtResource("1_1eawp")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=346051115]
 texture = ExtResource("2_1eawp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=250736825]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2055082218]
 position = Vector2(-1.481481, -50.37037)
-scale = Vector2(2.8616424, 3.746859)
+scale = Vector2(2.8616428, 3.7468596)
 shape = SubResource("CapsuleShape2D_bjw4k")

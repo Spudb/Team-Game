@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var balloon_scene: PackedScene
+@export var edge_margin = 60.0
 
 @onready var spawn_area: Area2D = $"../SpawnArea"
 @onready var balloons_container: Node2D = $"../BalloonsContainer"
@@ -23,7 +24,7 @@ func get_random_position() -> Vector2:
 	var shape = spawn_area.get_node("CollisionShape2D").shape
 	var size = shape.size
 	
-	var x = randf_range(-size.x / 2, size.x / 2)
+	var x = randf_range(-size.x / 2 + edge_margin, size.x / 2)
 	var y = randf_range(-size.y / 2, size.y / 2)
 	
 	return spawn_area.position + Vector2(x,y)
