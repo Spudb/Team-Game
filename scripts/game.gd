@@ -8,8 +8,8 @@ var game4_location
 func assign_games_data():
 	# game 2
 	$map/tent2.visible = 1
-	$map/tent2/info/title.text = "Game Title"
-	$map/tent2/info/info2.text = "Small desribtion."
+	$map/tent2/info/title.text = "Treasure Hunt"
+	$map/tent2/info/info2.text = "Find the treasure!"
 	$map/tent2/info/info3.text = "Highest score/etc"
 	#$map/tent2/info/image.texture = ""
 	game2_location = "res://TreasureHunt/TreasureHunt Scenes/treasure_hunt.tscn"
