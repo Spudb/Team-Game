@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b6r2to6m2tu4n"]
+
+[ext_resource type="Script" uid="uid://dkorgnhc723a6" path="res://Assets/Scripts/Obstacle Course/ObstaclesControls.gd" id="1_loodh"]
+[ext_resource type="Texture2D" uid="uid://3puqvfi544ns" path="res://Assets/Sprites/Obstacle Course/d2d.png" id="2_n5bt3"]
+[ext_resource type="Texture2D" uid="uid://cvejd6jj4lnmh" path="res://Assets/Sprites/Obstacle Course/dd.png" id="3_2gleh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjbx"]
+size = Vector2(83, 150.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxjbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n5bt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2gleh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1004632965]
+platform_on_leave = 2
+script = ExtResource("1_loodh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963767628]
+position = Vector2(-8.5, -11.75)
+shape = SubResource("RectangleShape2D_mxjbx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=574807537]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_mxjbx")
+autoplay = "default"
+frame_progress = 0.6135185

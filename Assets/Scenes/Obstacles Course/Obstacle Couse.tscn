@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bwfplks7vcxoi"]
+
+[ext_resource type="PackedScene" uid="uid://b6r2to6m2tu4n" path="res://Assets/Scenes/Obstacles Course/obstacles player.tscn" id="1_q7414"]
+[ext_resource type="Texture2D" uid="uid://csiwv4y31owoi" path="res://Assets/Sprites/Obstacle Course/rect10.png" id="2_1wgk1"]
+[ext_resource type="Script" uid="uid://cuwt8yuvsl6if" path="res://Assets/Scenes/Obstacles Course/shiftSprite.gd" id="3_h2qm0"]
+[ext_resource type="PackedScene" uid="uid://b3k47vx8m0urp" path="res://Assets/Scenes/Obstacles Course/obstacles.tscn" id="4_whgq2"]
+[ext_resource type="Script" uid="uid://buwxtusd1e3n8" path="res://Assets/Scenes/Obstacles Course/ObstaclesSpawner.gd" id="5_1wgk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjbx"]
+size = Vector2(126, 125)
+
+[node name="Node2D" type="Node2D" unique_id=875082865]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1484610160]
+position = Vector2(1000, -343)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CharacterBody2D" parent="." unique_id=1004632965 instance=ExtResource("1_q7414")]
+position = Vector2(14, 72)
+JUMP_VELOCITY = -1250
+gravityMultiplier = 3.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=204525941]
+position = Vector2(1080, 240)
+scale = Vector2(32, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1663252266]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_mxjbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1239995262]
+texture_filter = 6
+texture_repeat = 2
+position = Vector2(-0.125, -19)
+scale = Vector2(0.42, 1.61)
+texture = ExtResource("2_1wgk1")
+region_enabled = true
+region_rect = Rect2(0, 0, 1600, 72)
+script = ExtResource("3_h2qm0")
+
+[node name="Obstacles" parent="." unique_id=1402429492 instance=ExtResource("4_whgq2")]
+position = Vector2(1393, 107)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=718496415]
+position = Vector2(1868, -9)
+script = ExtResource("5_1wgk1")
+
+[node name="Timer" type="Timer" parent="Node2D" unique_id=794875091]
+one_shot = true
+
+[connection signal="timeout" from="Node2D/Timer" to="Node2D" method="_on_timer_timeout"]

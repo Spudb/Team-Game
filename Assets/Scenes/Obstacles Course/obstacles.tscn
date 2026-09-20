@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b3k47vx8m0urp"]
+
+[ext_resource type="Script" uid="uid://ceoclc3vlx081" path="res://Assets/Scenes/Obstacles Course/static_body_2d_2.gd" id="1_gf7vf"]
+[ext_resource type="Texture2D" uid="uid://cqqya8yun7gpa" path="res://Assets/Sprites/Obstacle Course/rect2.png" id="2_gf7vf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_whgq2"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjbx"]
+size = Vector2(126, 125)
+
+[node name="Obstacles" type="RigidBody2D" unique_id=1402429492]
+physics_material_override = SubResource("PhysicsMaterial_whgq2")
+gravity_scale = 0.449
+freeze_mode = 1
+script = ExtResource("1_gf7vf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1689423642]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_mxjbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203989033]
+texture_repeat = 2
+position = Vector2(-0.125, -10)
+texture = ExtResource("2_gf7vf")
+region_rect = Rect2(0, 0, 128, 128)

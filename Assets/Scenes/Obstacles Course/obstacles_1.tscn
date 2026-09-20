@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dm8qwssqncp1"]
+
+[ext_resource type="Script" uid="uid://ceoclc3vlx081" path="res://Assets/Scenes/Obstacles Course/static_body_2d_2.gd" id="1_owlrp"]
+[ext_resource type="Texture2D" uid="uid://cn5kyk6nvmulo" path="res://Assets/Sprites/Obstacle Course/Barrel.png" id="2_owlrp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_whgq2"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21x38"]
+radius = 85.5
+height = 198.0
+
+[node name="Obstacles" type="RigidBody2D" unique_id=1402429492]
+scale = Vector2(0.945, 0.945)
+physics_material_override = SubResource("PhysicsMaterial_whgq2")
+gravity_scale = 0.449
+freeze_mode = 1
+script = ExtResource("1_owlrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1689423642]
+top_level = true
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_21x38")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203989033]
+texture_repeat = 2
+texture = ExtResource("2_owlrp")
+region_rect = Rect2(0, 0, 128, 128)
