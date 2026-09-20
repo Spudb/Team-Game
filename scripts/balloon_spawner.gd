@@ -6,7 +6,7 @@ extends Node2D
 @onready var balloons_container: Node2D = $"../BalloonsContainer"
 @onready var spawn_timer: Timer = $SpawnTimer
 
-var colors = ["red", "blue", "yellow", "green"]
+const COLOR_NAMES = ["red", "blue", "yellow", "green"]
 
 func _ready():
 	spawn_timer.timeout.connect(spawn_balloon)
@@ -15,7 +15,7 @@ func spawn_balloon():
 	var balloon = balloon_scene.instantiate()
 	
 	balloon.position = get_random_position()
-	balloon.balloon_color = colors.pick_random()
+	balloon.balloon_color = COLOR_NAMES.pick_random()
 	
 	balloons_container.add_child(balloon)
 

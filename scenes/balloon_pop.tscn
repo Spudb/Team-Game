@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b07wb6hhxrlg8" path="res://scenes/balloon.tscn" id="3_a21ri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
-size = Vector2(1197.6396, 250.54327)
+size = Vector2(779.35565, 207.5192)
 
 [node name="BalloonPop" type="Node2D" unique_id=1365406755]
 script = ExtResource("1_il80f")
@@ -18,16 +18,18 @@ offset_bottom = 650.0
 color = Color(0.66727346, 0.007399044, 0.6741989, 1)
 
 [node name="SpawnArea" type="Area2D" parent="." unique_id=1576896118]
-scale = Vector2(0.963562, 2.590372)
+position = Vector2(545, 865.99994)
+scale = Vector2(1.4691626, 0.15666823)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" unique_id=733526092]
-position = Vector2(595.70636, 124.69249)
-scale = Vector2(1, 1.0000001)
+position = Vector2(26.886078, -19.148438)
+scale = Vector2(0.9999999, 1.0000001)
 shape = SubResource("RectangleShape2D_lfkbx")
 
 [node name="BalloonsContainer" type="Node2D" parent="." unique_id=1049013031]
 
 [node name="BalloonSpawner" type="Node2D" parent="." unique_id=1998407104]
+position = Vector2(0, 851)
 script = ExtResource("2_a21ri")
 balloon_scene = ExtResource("3_a21ri")
 
@@ -67,3 +69,5 @@ theme_override_font_sizes/font_size = 32
 text = "Time: 30"
 
 [node name="GameTimer" type="Timer" parent="." unique_id=727725667]
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

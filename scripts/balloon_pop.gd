@@ -3,12 +3,13 @@ extends Node2D
 var target_color = "red"
 var target_score = 20
 var score = 0
-var time_left = 30.0
+var time_left = 30
+var game_active = true
 
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var timer_label: Label = $UI/TimerLabel
 @onready var target_label: Label = $UI/TargetLabel
-
+@onready var spawn_timer: Timer = $BalloonSpawner/SpawnTimer
 @onready var game_timer: Timer = $GameTimer
 
 func _ready():
@@ -22,33 +23,20 @@ func update_ui():
 func _on_game_timer_timeout():
 	time_left -= 1
 	update_ui()
-	
 	if time_left <= 0:
-		end_game()
+		end_game(false)
 
 func balloon_popped(balloon_color: String):
-	if balloon_color == target_color:
-		score += 1
-	else:
-		score -= 1
-	
+	if not game_active:
+		return
+	score += 1 if balloon_color == target_color else -1
 	update_ui()
-	
 	if score >= target_score:
-		win_game()
-
-func win_game():
+		end_game(true)
+	
+func end_game(won: bool):
+	game_active = false
 	game_timer.stop()
-	
-	target_label.text = "🎉 Congrats!"
-	
-	print("Player WON!")
-
-func end_game():
-	game_timer.stop()
-	
-	if score >= target_score:
-		win_game()
-	else:
-			target_label.text = "Time's up!"
-			print("Player LOST!")
+	spawn_timer.stop()
+	target_label.text = "🎉 Congrats!" if won else "Time's up!"
+	print("Player WON!" if won else "Player LOST!")
