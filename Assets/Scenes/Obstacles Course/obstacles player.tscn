@@ -5,16 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://cvejd6jj4lnmh" path="res://Assets/Sprites/Obstacle Course/dd.png" id="3_2gleh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjbx"]
-size = Vector2(83, 150.5)
+size = Vector2(83, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxjbx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_n5bt3")
+"texture": ExtResource("3_2gleh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2gleh")
+"texture": ExtResource("2_n5bt3")
 }],
 "loop": 1,
 "name": &"default",
@@ -26,11 +26,11 @@ platform_on_leave = 2
 script = ExtResource("1_loodh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963767628]
-position = Vector2(-8.5, -11.75)
+position = Vector2(-8.5, -7)
 shape = SubResource("RectangleShape2D_mxjbx")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=574807537]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_mxjbx")
 autoplay = "default"
-frame_progress = 0.6135185
+frame_progress = 0.6949664

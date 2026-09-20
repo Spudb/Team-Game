@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bwfplks7vcxoi"]
 
 [ext_resource type="PackedScene" uid="uid://b6r2to6m2tu4n" path="res://Assets/Scenes/Obstacles Course/obstacles player.tscn" id="1_q7414"]
-[ext_resource type="Texture2D" uid="uid://csiwv4y31owoi" path="res://Assets/Sprites/Obstacle Course/rect10.png" id="2_1wgk1"]
 [ext_resource type="Script" uid="uid://cuwt8yuvsl6if" path="res://Assets/Scenes/Obstacles Course/shiftSprite.gd" id="3_h2qm0"]
 [ext_resource type="PackedScene" uid="uid://b3k47vx8m0urp" path="res://Assets/Scenes/Obstacles Course/obstacles.tscn" id="4_whgq2"]
 [ext_resource type="Script" uid="uid://buwxtusd1e3n8" path="res://Assets/Scenes/Obstacles Course/ObstaclesSpawner.gd" id="5_1wgk1"]
@@ -9,11 +8,32 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjbx"]
 size = Vector2(126, 125)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_whgq2"]
+load_path = "res://.godot/imported/rect10.png-c9facec26c842cd2cdc53a4b6b8107a7.ctex"
+
 [node name="Node2D" type="Node2D" unique_id=875082865]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1484610160]
 position = Vector2(1000, -343)
 zoom = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=328052583]
+custom_minimum_size = Vector2(2941, 1441)
+custom_maximum_size = Vector2(12412, 12421)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0035545, 1)
+mouse_filter = 2
+color = Color(0.6431373, 0.93333334, 1, 1)
+
+[node name="Control" type="Control" parent="Camera2D" unique_id=1241426733]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="CharacterBody2D" parent="." unique_id=1004632965 instance=ExtResource("1_q7414")]
 position = Vector2(14, 72)
@@ -21,19 +41,21 @@ JUMP_VELOCITY = -1250
 gravityMultiplier = 3.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=204525941]
-position = Vector2(1080, 240)
-scale = Vector2(32, 1)
+position = Vector2(1080.0001, 301)
+scale = Vector2(-32.062298, 1.2880716)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1663252266]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_mxjbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1239995262]
+modulate = Color(16.074999, 18.892157, 0, 1)
+self_modulate = Color(0, 1, 1, 1)
 texture_filter = 6
 texture_repeat = 2
-position = Vector2(-0.125, -19)
+position = Vector2(0.031193882, -13.198025)
 scale = Vector2(0.42, 1.61)
-texture = ExtResource("2_1wgk1")
+texture = SubResource("CompressedTexture2D_whgq2")
 region_enabled = true
 region_rect = Rect2(0, 0, 1600, 72)
 script = ExtResource("3_h2qm0")

@@ -7,7 +7,7 @@
 friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxjbx"]
-size = Vector2(126, 125)
+size = Vector2(129, 130)
 
 [node name="Obstacles" type="RigidBody2D" unique_id=1402429492]
 physics_material_override = SubResource("PhysicsMaterial_whgq2")
@@ -16,7 +16,7 @@ freeze_mode = 1
 script = ExtResource("1_gf7vf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1689423642]
-position = Vector2(0, -7.5)
+position = Vector2(-1.5, -11)
 shape = SubResource("RectangleShape2D_mxjbx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203989033]
@@ -24,3 +24,5 @@ texture_repeat = 2
 position = Vector2(-0.125, -10)
 texture = ExtResource("2_gf7vf")
 region_rect = Rect2(0, 0, 128, 128)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -16,3 +16,8 @@ func _on_timer_timeout() -> void:
 	new_thing.position = position
 	$Timer.wait_time = randf_range(1.0, 4.0)
 	$Timer.start()
+
+func _on_body_entered(body: Node) -> void:
+	if body.name == "Player":
+		print("GAME OVER")
+		get_tree().paused = true
